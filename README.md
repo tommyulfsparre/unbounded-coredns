@@ -29,7 +29,7 @@ docker run -it --rm -p 1053:1053/tcp -p 1053:1053/udp -p 1180:1180/tcp --name co
 docker run -it --rm --name powerdns --memory=1024m --network=container:coredns pdns-backend:repro
 ```
 
-run [dnsperf](##run-dnsperf).
+run [dnsperf](#run-dnsperf).
 
 
 ## Run with CoreDNS master with limit plugin
@@ -38,17 +38,17 @@ docker run -it --rm -p 1053:1053/tcp -p 1053:1053/udp -p 1180:1180/tcp --name co
 docker run -it --rm --name powerdns --memory=1024m --network=container:coredns pdns-backend:repro
 ```
 
-run [dnsperf](##run-dnsperf).
+run [dnsperf](#run-dnsperf).
 
 ## Run dnsperf
-Send DNS request to 127.0.0.1:1053 acting as 100 client for 180 seconds with a 10 seconds query timeout and limit the number of outstanding request to 20000.
+Send DNS request to 127.0.0.1:1053 acting as 100 client for 180 seconds with a 10 seconds query timeout and limit the number of outstanding request to 40000.
 
 Use input file /tmp/queryfile. The queryfile is copied into the container and can be viewed [here](dnsperf/queryfile).
 
 **It's important to increase the number of outstanding request for dnsperf, otherwise dnsperf will limit the concurrency.**
 
 ```bash
-docker run -it --rm --name dnsperf --memory=256m --network=container:coredns dnsperf:repro /usr/local/bin/dnsperf -s 127.0.0.1 -p 1053 -c 100 -q 20000 -l 180 -t 10 -S 5 -T 4 -d /tmp/queryfile
+docker run -it --rm --name dnsperf --memory=256m --network=container:coredns dnsperf:repro /usr/local/bin/dnsperf -s 127.0.0.1 -p 1053 -c 100 -q 40000 -l 180 -t 10 -S 5 -T 4 -d /tmp/queryfile
 ```
 
 ## Graph with Prometheus 
