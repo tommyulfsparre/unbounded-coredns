@@ -23,7 +23,7 @@ docker build -t coredns:repro -f coredns/Dockerfile coredns
 docker build -t coredns-limit:repro -f coredns-limit/Dockerfile coredns-limit
 ```
 
-## Run with coredns/coredns:latest 
+## Run with coredns/coredns master 
 ```bash
 docker run -it --rm -p 1053:1053/tcp -p 1053:1053/udp -p 1180:1180/tcp --name coredns --memory=1024m coredns:repro
 docker run -it --rm --name powerdns --memory=1024m --network=container:coredns pdns-backend:repro
