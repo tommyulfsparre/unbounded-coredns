@@ -1,0 +1,5 @@
+.:1053 {
+    prometheus :1180
+    any
+    forward . 127.0.0.1:2053
+}
