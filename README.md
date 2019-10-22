@@ -29,7 +29,7 @@ docker run -it --rm -p 1053:1053/tcp -p 1053:1053/udp -p 1180:1180/tcp --name co
 docker run -it --rm --name powerdns --memory=1024m --network=container:coredns pdns-backend:repro
 ```
 
-run [dnsperf](##run-dnsperf).
+run [dnsperf](#run-dnsperf).
 
 
 ## Run with CoreDNS master with limit plugin
@@ -38,7 +38,7 @@ docker run -it --rm -p 1053:1053/tcp -p 1053:1053/udp -p 1180:1180/tcp --name co
 docker run -it --rm --name powerdns --memory=1024m --network=container:coredns pdns-backend:repro
 ```
 
-run [dnsperf](##run-dnsperf).
+run [dnsperf](#run-dnsperf).
 
 ## Run dnsperf
 Send DNS request to 127.0.0.1:1053 acting as 100 client for 180 seconds with a 10 seconds query timeout and limit the number of outstanding request to 20000.
